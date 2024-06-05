@@ -7,27 +7,19 @@ print("Funcionara da seguinte forma: você escolhera uma das 3 alternativas e ta
 
 #atribuição de variáveis para o usuário e a máquina
 
-bot_option = choice(["pedra", "papel", "tesoura"])
+options = ["pedra", "papel", "tesoura"]
+bot_option = choice(options)
 user_option = input("Digite 'pedra', 'papel' ou 'tesoura'").lower()
 
 #cadeias condicionais para exibir o resultado do jogo
 
-if user_option == bot_option:
-    print("Voce e a maquina escolheram {}, logo o resultado foi um empate!".format(user_option))
-elif user_option == "pedra" and bot_option == "papel":
-    print("A maquina escolheu {}, e voce escolheu {}, logo a máquina venceu!".format(bot_option, user_option))
-elif user_option == "pedra" and bot_option == "tesoura":
-    print("A maquina escolheu {}, e voce escolheu {}, logo você venceu!".format(bot_option, user_option))
-elif user_option == "tesoura" and bot_option == "pedra":
-    print("A maquina escolheu {}, e voce escolheu {}, logo a máquina venceu!".format(bot_option, user_option))
-elif user_option == "tesoura" and bot_option == "papel":
-    print("A maquina escolheu {}, e voce escolheu {}, logo você venceu!".format(bot_option, user_option))
-elif user_option == "papel" and bot_option == "tesoura":
-    print("A maquina escolheu {}, e voce escolheu {}, logo a máquina venceu!".format(bot_option, user_option))
-elif user_option == "papel" and bot_option == "pedra":
-    print("A maquina escolheu {}, e voce escolheu {}, logo você venceu!".format(bot_option, user_option))
+if bot_option == user_option:
+    print("Deu empate!")
+elif (bot_option == "pedra" and user_option == "tesoura") or (bot_option == "tesoura" and user_option == "papel") or (bot_option == "papel" and user_option == "pedra"):
+    print("Você perdeu, pois você escolheu {} e a máquina escolheu {}".format(user_option, bot_option))
+elif user_option not in options:
+    print("Você não digitou 'pedra', 'papel' ou 'tesoura'")
 else:
-    print("Não foi possivel realizar o jogo, pois voce digitou algo que não corresponde com 'pedra','papel' ou 'tesoura'")
-
+    print("Você ganhou, pois você escolheu {} e a máquina escolheu {}".format(user_option, bot_option))
 # feito por caue-de-lima-santos
 # 02/06/2024 11:57 PM
